@@ -1,5 +1,5 @@
 /*
- * Created on Sun Aug 21 2022 12:46:21 PM
+ * Created on Sat Aug 27 2022 8:43:36 AM
  *
  * The MIT License (MIT)
  * Copyright (c) 2022 Aananth C N
@@ -18,31 +18,11 @@
  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-#include <Mcu.h>
-#include <osek.h>
 
-// include system generated file
-#include <sg_appmodes.h>
-
-// temp. workaround for pr_log() API
-#include <os_api.h>
+#include <asr_cfg_defs.h>
+#include <Platform_Types.h>
 
 #include <EcuM.h>
-#include <EcuM_Externals.h>
 
 
-void EcuM_StartupTwo(void) {
-
-}
-
-void EcuM_Init(void) {
-        EcuM_AL_SetProgrammableInterrupts();
-        EcuM_AL_DriverInitZero();
-        EcuM_DeterminePbConfiguration();
-        EcuM_AL_DriverInitOne();
-        EcuM_LoopDetection();
-
-        StartOS(OSDEFAULTAPPMODE);
-        /* The execution should never reach here */
-        pr_log("Info: StartOS() function returned!! OS Exits!\n");
-}
+uint64 EcuMConfigConsistencyHash ASR_CFG_SECTION(".EcuM_hash");

@@ -5,15 +5,19 @@
 #OBJCOPY=${COMPILER}objcopy
 #ARCH = x86
 
-INCDIRS  += -I ${ECUM_PATH}/src
+INCDIRS  += -I ${ECUM_PATH}/src \
+	    -I ${ECUM_PATH}/api	\
+	    -I ${MCU_PATH}/base/toolchain
 
 LDFLAGS  += -g
 CFLAGS   += -Werror ${INCDIRS} -g
 ASFLAGS  += ${INCDIRS} -g
 
-$(info compiling Test Application source files)
+$(info compiling EcuM source files)
 
 
-MCU_OBJS := \
-	${ECUM_PATH}/src/EcuM.o
+ECUM_OBJS := \
+	${ECUM_PATH}/src/EcuM.o \
+	${ECUM_PATH}/src/EcuM_Callout_Stubs.o \
+	${ECUM_PATH}/cfg/EcuM_cfg.o
 
