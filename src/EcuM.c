@@ -20,6 +20,7 @@
  */
 #include <Mcu.h>
 #include <osek.h>
+#include <stddef.h>
 
 // include system generated file
 #include <sg_appmodes.h>
@@ -31,16 +32,38 @@
 #include <EcuM_Externals.h>
 
 
-void EcuM_StartupTwo(void) {
-
+TASK(EcuM_StartupTwo) {
+        pr_log("Info: EcuM_StartupTwo() is invoked!\n");
 }
 
+
+
 void EcuM_Init(void) {
+        const EcuM_ConfigType* ecum_cfg;
+
         EcuM_AL_SetProgrammableInterrupts();
+
+        // GetCoreID(CoreIdType)
         EcuM_AL_DriverInitZero();
-        EcuM_DeterminePbConfiguration();
+
+        ecum_cfg = EcuM_DeterminePbConfiguration();
+        if (ecum_cfg != NULL) {
+                // do data consistency check
+                // EcuM_ErrorHook(ECUM_E_CONFIGURATION_DATA_INCONSISTENT);
+        }
+        else {
+                pr_log("Error: EcuM_DeterminePbConfiguration() returned NULL pointer\n");
+        }
+
         EcuM_AL_DriverInitOne();
+        // Mcu_GetResetReason(Mcu_ResetType);
+        // Update the reset reason variables
+
+        // EcuM_SelectShutdownTarget(Std_ReturnType, EcuM_ShutdownTargetType, EcuM_ShutdownModeType)
+
         EcuM_LoopDetection();
+
+        //for each core: StartCore(CoreIdType, StatusType**)
 
         StartOS(OSDEFAULTAPPMODE);
         /* The execution should never reach here */
