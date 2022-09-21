@@ -19,10 +19,12 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#include <stddef.h>
+
 #include <Mcu.h>
 #include <EcuM.h>
+#include <Port.h>
 
-#include <stddef.h>
 
 
 // Callouts - STARTUP Phase
@@ -33,6 +35,7 @@ void EcuM_AL_SetProgrammableInterrupts(void) {
 
 void EcuM_AL_DriverInitZero(void) {
         Mcu_Init(&McuConfig);
+	Port_Init(&PortConfigs);
 }
 
 const EcuM_ConfigType* EcuM_DeterminePbConfiguration(void) {
