@@ -24,6 +24,7 @@
 #include <Mcu.h>
 #include <EcuM.h>
 #include <Port.h>
+#include <Spi.h>
 
 
 
@@ -36,6 +37,7 @@ void EcuM_AL_SetProgrammableInterrupts(void) {
 void EcuM_AL_DriverInitZero(void) {
         Mcu_Init(&McuConfig);
 	Port_Init(&PortConfigs);
+	Spi_Init(&SpiConfigs);
 }
 
 const EcuM_ConfigType* EcuM_DeterminePbConfiguration(void) {
