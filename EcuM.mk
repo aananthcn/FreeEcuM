@@ -7,7 +7,7 @@
 
 INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${ECUM_PATH}/api	\
-	    -I ${MCU_PATH}/base/toolchain
+	    -I ${MCU_PATH}/src/common/toolchain
 
 LDFLAGS  += -g
 CFLAGS   += -Werror ${INCDIRS} -g
