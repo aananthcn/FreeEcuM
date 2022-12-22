@@ -5,7 +5,7 @@ AR=${COMPILER}ar
 RANLIB=${COMPILER}ranlib
 OBJCOPY=${COMPILER}objcopy
 
-include ${ROOT_DIR}/pathdefs.mk
+include ${ROOT_DIR}/path_defs.mk
 
 INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${ECUM_PATH}/api	\
