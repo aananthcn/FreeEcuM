@@ -24,20 +24,21 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${SPI_PATH}/cfg \
 	    -I ${SPI_PATH}/src
 
-LDFLAGS  += -g
-CFLAGS   += -Werror ${INCDIRS} -g
-ASFLAGS  += ${INCDIRS} -g
+
 
 $(info compiling EcuM source files)
-
 
 ECUM_OBJS := \
 	${ECUM_PATH}/src/EcuM.o \
 	${ECUM_PATH}/src/EcuM_Callout_Stubs.o \
 	${ECUM_PATH}/cfg/EcuM_cfg.o
 
-CFLAGS := ${INCDIRS}
-TARGET := libEcuM.la
+LDFLAGS := -g
+CFLAGS  := -Werror ${INCDIRS} -g
+ASFLAGS := ${INCDIRS} -g
+TARGET  := libEcuM.la
+# include c_l_flags.mk to add more definitions specific to micro-controller
+include ${ROOT_DIR}/c_l_flags.mk
 
 all: $(TARGET)
 
