@@ -12,10 +12,10 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${OS_PATH}/include \
 	    -I ${MCU_MICRO_PATH} \
 	    -I ${MCU_PATH}/api \
-	    -I ${MCU_PATH}/src/bsp \
+	    -I ${MCU_PATH}/src \
+	    -I ${MCU_PATH}/src/common \
 	    -I ${MCU_PATH}/src/common/api \
 	    -I ${MCU_PATH}/src/common/src \
-	    -I ${MCU_PATH}/src/common/toolchain \
 	    -I ${OS_BUILDER_PATH}/src \
 	    -I ${PORT_PATH}/api \
 	    -I ${PORT_PATH}/cfg \
