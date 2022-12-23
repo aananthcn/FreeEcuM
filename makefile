@@ -5,12 +5,14 @@ AR=${COMPILER}ar
 RANLIB=${COMPILER}ranlib
 OBJCOPY=${COMPILER}objcopy
 
+
 include ${ROOT_DIR}/path_defs.mk
+
 
 INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${ECUM_PATH}/api	\
 	    -I ${OS_PATH}/include \
-	    -I ${MCU_MICRO_PATH} \
+	    -I ${MCU_STARTUP_PATH} \
 	    -I ${MCU_PATH}/api \
 	    -I ${MCU_PATH}/src \
 	    -I ${MCU_PATH}/src/common \
@@ -23,7 +25,6 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${SPI_PATH}/api \
 	    -I ${SPI_PATH}/cfg \
 	    -I ${SPI_PATH}/src
-
 
 
 $(info compiling EcuM source files)
