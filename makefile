@@ -34,7 +34,7 @@ ECUM_OBJS := \
 	${ECUM_PATH}/src/EcuM_Callout_Stubs.o \
 	${ECUM_PATH}/cfg/EcuM_cfg.o
 
-LDFLAGS := -g
+LDFLAGS := -g -relocatable
 CFLAGS  := -Werror ${INCDIRS} -g
 ASFLAGS := ${INCDIRS} -g
 TARGET  := libEcuM.la
@@ -46,8 +46,7 @@ all: $(TARGET)
 LIB_OBJS := $(ECUM_OBJS)
 
 $(TARGET): $(LIB_OBJS)
-	$(AR) r $@ $^
-	$(RANLIB) $@
+	$(LD) ${LDFLAGS} -o $@ $^
 
 clean:
 	$(RM) $(LIB_OBJS) $(TARGET)
