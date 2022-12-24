@@ -27,6 +27,7 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${SPI_PATH}/src
 
 
+$(info  )
 $(info compiling EcuM source files)
 
 ECUM_OBJS := \
