@@ -25,6 +25,7 @@
 #include <EcuM.h>
 #include <Port.h>
 #include <Spi.h>
+#include <EthIf.h>
 #include <Eth.h>
 
 
@@ -39,6 +40,9 @@ void EcuM_AL_DriverInitZero(void) {
         Mcu_Init(&McuConfig);
 	Port_Init(&PortConfigs);
 	Spi_Init(&SpiConfigs);
+
+	// Ethernet init
+	EthIf_Init(&EthIfConfigs);
 	Eth_Init(EthConfigs);
 }
 

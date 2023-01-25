@@ -26,7 +26,9 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${SPI_PATH}/cfg \
 	    -I ${SPI_PATH}/src \
 	    -I ${ETH_PATH}/api \
-	    -I ${ETH_PATH}/cfg
+	    -I ${ETH_PATH}/cfg \
+	    -I ${ETHIF_PATH}/api \
+	    -I ${ETHIF_PATH}/cfg
 
 
 $(info  )
