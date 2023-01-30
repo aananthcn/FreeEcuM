@@ -27,6 +27,7 @@
 #include <Spi.h>
 #include <EthIf.h>
 #include <Eth.h>
+#include <TcpIp.h>
 
 
 
@@ -44,6 +45,9 @@ void EcuM_AL_DriverInitZero(void) {
 	// Ethernet init
 	EthIf_Init(&EthIfConfigs);
 	Eth_Init(EthConfigs);
+
+	// Com init
+	TcpIp_Init(&TcpIp_Config);
 }
 
 const EcuM_ConfigType* EcuM_DeterminePbConfiguration(void) {

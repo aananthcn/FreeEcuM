@@ -28,7 +28,9 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${ETH_PATH}/api \
 	    -I ${ETH_PATH}/cfg \
 	    -I ${ETHIF_PATH}/api \
-	    -I ${ETHIF_PATH}/cfg
+	    -I ${ETHIF_PATH}/cfg \
+	    -I ${TCPIP_PATH}/api \
+	    -I ${TCPIP_PATH}/cfg
 
 
 $(info  )
