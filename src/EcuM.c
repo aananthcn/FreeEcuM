@@ -69,3 +69,13 @@ void EcuM_Init(void) {
         /* The execution should never reach here */
         pr_log("Info: StartOS() function returned!! OS Exits!\n");
 }
+
+
+
+void EcuM_SetWakeupEvent(EcuM_WakeupSourceType sources) {
+
+}
+
+void EcuM_ValidateWakeupEvent(EcuM_WakeupSourceType sources) {
+
+}
