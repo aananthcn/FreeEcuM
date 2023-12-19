@@ -14,7 +14,7 @@ INCDIRS  += -I ${ECUM_PATH}/src \
 	    -I ${OS_PATH}/include \
 	    -I ${CAR_OS_INC_PATH}/autosar \
 	    -I ${CAR_OS_INC_PATH}/car_os \
-	    -I ${CAR_OS_BOARDS_PATH} \
+	    -I ${CAR_OS_BOARD_PATH} \
 	    -I ${MCU_PATH}/api \
 	    -I ${MCU_PATH}/src \
 	    -I ${OS_BUILDER_PATH}/src \
