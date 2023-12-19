@@ -33,7 +33,7 @@
 
 
 TASK(EcuM_StartupTwo) {
-        pr_log("Info: EcuM_StartupTwo() is invoked by Os! (sp=0x%08X)\n", _get_stack_ptr());
+        pr_log("Info: EcuM_StartupTwo() is invoked by Os!\n");
 }
 
 
