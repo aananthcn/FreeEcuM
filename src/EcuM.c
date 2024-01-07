@@ -32,6 +32,13 @@
 #include <EcuM_Externals.h>
 
 
+#include <zephyr/logging/log.h> // for LOG_DBG()
+
+// Global variables
+LOG_MODULE_REGISTER(EcuM, LOG_LEVEL_DBG);
+
+
+
 TASK(EcuM_StartupTwo) {
         pr_log("Info: EcuM_StartupTwo() is invoked by Os!\n");
 }
@@ -52,7 +59,7 @@ void EcuM_Init(void) {
                 // EcuM_ErrorHook(ECUM_E_CONFIGURATION_DATA_INCONSISTENT);
         }
         else {
-                pr_log("Error: EcuM_DeterminePbConfiguration() returned NULL pointer\n");
+                LOG_DBG("Error: EcuM_DeterminePbConfiguration() returned NULL pointer\n");
         }
 
         EcuM_AL_DriverInitOne();
@@ -64,10 +71,6 @@ void EcuM_Init(void) {
         EcuM_LoopDetection();
 
         //for each core: StartCore(CoreIdType, StatusType**)
-
-        StartOS(OSDEFAULTAPPMODE);
-        /* The execution should never reach here */
-        pr_log("Info: StartOS() function returned!! OS Exits!\n");
 }
 
 
