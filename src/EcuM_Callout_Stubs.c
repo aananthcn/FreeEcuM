@@ -40,14 +40,17 @@ void EcuM_AL_SetProgrammableInterrupts(void) {
 void EcuM_AL_DriverInitZero(void) {
         Mcu_Init(&McuConfig);
 	Port_Init(&PortConfigs);
-	Spi_Init(&SpiConfigs);
 
+#if SPI_DRIVER_MAX_CHANNEL > 0
+	Spi_Init(&SpiConfigs);
+#endif
+
+#if ETH_DRIVER_MAX_CHANNEL > 0
 	// Ethernet init
 	EthIf_Init(&EthIfConfigs);
 	Eth_Init(EthConfigs);
-
-	// Com init
 	TcpIp_Init(&TcpIp_Config);
+#endif
 }
 
 const EcuM_ConfigType* EcuM_DeterminePbConfiguration(void) {
