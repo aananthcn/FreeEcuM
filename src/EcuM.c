@@ -40,7 +40,7 @@ LOG_MODULE_REGISTER(EcuM, LOG_LEVEL_DBG);
 
 
 TASK(EcuM_StartupTwo) {
-        pr_log("Info: EcuM_StartupTwo() is invoked by Os!\n");
+        LOG_DBG("Info: EcuM_StartupTwo() is invoked by Os!");
 }
 
 
