@@ -25,14 +25,17 @@
 // include system generated file
 #include <sg_appmodes.h>
 
-// temp. workaround for pr_log() API
-#include <os_api.h>
 
 #include <EcuM.h>
 #include <EcuM_Externals.h>
 
 
 #include <zephyr/logging/log.h> // for LOG_DBG()
+
+
+
+// Macros
+
 
 // Global variables
 LOG_MODULE_REGISTER(EcuM, LOG_LEVEL_DBG);
@@ -59,7 +62,7 @@ void EcuM_Init(void) {
                 // EcuM_ErrorHook(ECUM_E_CONFIGURATION_DATA_INCONSISTENT);
         }
         else {
-                LOG_DBG("Error: EcuM_DeterminePbConfiguration() returned NULL pointer\n");
+                LOG_WRN("Warning: EcuM_DeterminePbConfiguration() returned NULL pointer");
         }
 
         EcuM_AL_DriverInitOne();
